@@ -3,14 +3,37 @@
 uniform sampler2D Texture0;
 varying vec2 texCoord;
 
+vec4 purple0 = vec4(
+	69.0 / 256,
+	59.0 / 256,
+	97.0 / 256,
+	1
+);
+
+vec4 purple1 = vec4(
+	95.0 / 256,
+	82.0 / 256,
+	134.0 / 256,
+	1
+);
+
+vec3 grey0 = vec3(
+	142,
+	80,
+	138
+);
+
+vec3 grey1 = vec3(
+	142,
+	80,
+	138
+);
+
 void main() {
 	ivec2 size = textureSize2D(Texture0, 0);
 	float total = floor(texCoord.x * float(size.x)) + floor(texCoord.y * float(size.y));
 
 	bool isEven = mod(total, 2.0) == 0.0;
 
-	vec4 col1 = vec4(0.0, 0.0, 0.0, 1.0);
-	vec4 col2 = vec4(1.0, 1.0, 1.0, 1.0);
-
-	gl_FragColor = (isEven) ? col1 : col2;
+	gl_FragColor = (isEven) ? purple0 : purple1;
 }
