@@ -38,7 +38,7 @@ LIB_RELEASE = $(LIB)
 LDFLAGS_RELEASE = $(LDFLAGS) -s
 OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
-OUT_RELEASE = bin/Release/OpenGLTest
+OUT_RELEASE = OpenGLTest
 
 OBJ_DEBUG = $(OBJDIR_DEBUG)/texture.o $(OBJDIR_DEBUG)/stb_image.o $(OBJDIR_DEBUG)/shader.o $(OBJDIR_DEBUG)/obj_loader.o $(OBJDIR_DEBUG)/mesh.o $(OBJDIR_DEBUG)/main.o $(OBJDIR_DEBUG)/display.o
 

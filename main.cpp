@@ -68,7 +68,7 @@ int main(int argc, char** argv)
 
 	Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]));
 	Mesh monkey("./res/monkey3.obj");
-	Shader shader("./res/basicShader");
+	Shader shader("./res/checker");
 	Texture texture("./res/bricks.jpg");
 	Transform transform;
 	Camera camera(glm::vec3(0.0f, 0.0f, -5.0f), 70.0f, (float)DISPLAY_WIDTH/(float)DISPLAY_HEIGHT, 0.1f, 100.0f);
@@ -86,8 +86,9 @@ int main(int argc, char** argv)
 
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
 
-		float sinCounter = sinf(counter);
-		float absSinCounter = abs(sinCounter);
+		float
+			sinCounter = sinf(counter),
+			absSinCounter = abs(sinCounter);
 
 		//transform.GetPos()->x = sinCounter;
 		transform.GetRot()->y = counter * 100;
@@ -103,7 +104,6 @@ int main(int argc, char** argv)
 
 		display.SwapBuffers();
 		SDL_Delay(1);
-		counter += 0.01f;
 	}
 
 	return 0;
