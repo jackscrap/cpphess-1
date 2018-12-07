@@ -35,6 +35,8 @@ enum MeshBufferPositions {
 
 class Mesh {
 	public:
+	 	int no;
+
 		Mesh();
 
 		Mesh(const std::string& fileName);

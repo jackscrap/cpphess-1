@@ -113,30 +113,29 @@ int main() {
 		0.1f,
 		100.0f
 	);
-	camera.Pitch(0.4);
+	/* camera.Pitch(0.4); */
 
 	SDL_Event e;
 	bool isRunning = true;
 	float counter = 0.0f;
-	while(isRunning) {
-		while(SDL_PollEvent(&e)) {
-			if(e.type == SDL_QUIT) {
+	while (isRunning) {
+		while (SDL_PollEvent(&e)) {
+			if (e.type == SDL_QUIT) {
 				isRunning = false;
 			}
 		}
 
 		display.Clear(0.6f, 0.6f, 0.6f, 0.3f);
 
-		float
-			sinCounter = sinf(counter),
-			absSinCounter = abs(sinCounter);
+		transform.GetScale()->x = 0.2;
+		transform.GetScale()->y = 0.2;
+		transform.GetScale()->z = 0.2;
 
-		/* transform.GetScale()->x = 0.1; */
-		/* transform.GetScale()->y = 0.1; */
-		/* transform.GetScale()->z = 0.1; */
+		counter += 0.03;
+		glm::vec3 pos = glm::vec3(1, 1, counter);
+		transform.SetPos(pos);
 
 		shader.Bind();
-		texture.Bind();
 		shader.Update(transform, camera);
 
 		board.Draw();
@@ -147,13 +146,10 @@ int main() {
 			i++
 		) {
 			piece[i].Draw();
-
-			transform.GetPos()->x = 0;
 		}
 
 		/* king.Draw(); */
 		/* cyoob.Draw(); */
-		/* cube.Draw(); */
 
 		display.SwapBuffers();
 		SDL_Delay(1);

@@ -9,10 +9,12 @@
 #include "debugTimer.h"
 
 Mesh::Mesh() {
-	InitMesh(OBJModel("res/pawn.obj").ToIndexedModel());
+	InitMesh(OBJModel("res/cube.obj").ToIndexedModel());
 }
 
 Mesh::Mesh(const std::string& fileName) {
+	no++;
+
 	InitMesh(OBJModel(fileName).ToIndexedModel());
 }
 
@@ -69,7 +71,6 @@ Mesh::~Mesh() {
 void Mesh::Draw() {
 	glBindVertexArray(m_vertexArrayObject);
 
-	//glDrawElements(GL_TRIANGLES, m_numIndices, GL_UNSIGNED_INT, 0);
 	glDrawElementsBaseVertex(GL_TRIANGLES, m_numIndices, GL_UNSIGNED_INT, 0, 0);
 
 	glBindVertexArray(0);
